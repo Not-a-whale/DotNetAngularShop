@@ -1,5 +1,5 @@
 export type Product = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -7,4 +7,4 @@ export type Product = {
   type: string;
   brand: string;
   quantityInStock: number;
-}
+};

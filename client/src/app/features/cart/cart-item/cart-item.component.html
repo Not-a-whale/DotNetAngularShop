@@ -1,0 +1,40 @@
+<div class="rounded-lg border border-gray-200 p-4 shadow-sm mb-4">
+  <div class="flex items-center justify-between gap-6">
+    <a class="shrink order-1" routerLink="/shop/{{item().productId}}">
+      <img alt="product image" class="h-20 w-20" src="{{item().pictureUrl}}" />
+    </a>
+    <div class="flex items-center justify-between shrink order-3 w-full">
+      <div class="w-full flex-1 space-y-4">
+        <a class="font-medium" routerLink="/shop/{{item().productId}}">
+          {{item().productName}}
+        </a>
+
+        <div class="flex items-center gap-4">
+          <button (click)="removeItemFromCart()" color="warn" mat-button>
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center align-middle gap-3">
+        <button mat-icon-button>
+          <mat-icon (click)="decrementQuantity()" class="text-red-600">remove</mat-icon>
+        </button>
+        <div class="font-semibold text-xl mb-1">
+          {{item().quantity}}
+        </div>
+        <button (click)="incrementQuantity()" mat-icon-button>
+          <mat-icon class="text-green-600">add</mat-icon>
+        </button>
+      </div>
+
+      <div class="text-end w-32">
+        <p class="font-bold text-xl">
+          {{item().price | currency}}
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+</div>

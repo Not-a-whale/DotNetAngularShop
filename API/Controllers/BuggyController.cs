@@ -8,7 +8,7 @@ namespace API.Controllers
         [HttpGet("unauthorized")]
         public IActionResult GetUnauthorized()
         {
-            return Unauthorized();
+            return Unauthorized("Unauthorized");
         }
 
         [HttpGet("badrequest")]
