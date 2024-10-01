@@ -24,6 +24,19 @@ namespace Infrastructure.Data
 
                 await context.SaveChangesAsync();
             }
+
+            if (!context.DeliveryMethods.Any())
+            {
+                var dmDeta = await File.ReadAllTextAsync("../Infrastructure/Data/SeedData/delivery.json");
+
+                var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(dmDeta);
+
+                if (methods == null) return;
+
+                context.DeliveryMethods.AddRange(methods);
+
+                await context.SaveChangesAsync();
+            }
         }
     }
 }

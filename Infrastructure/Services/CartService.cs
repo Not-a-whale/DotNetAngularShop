@@ -29,8 +29,6 @@ namespace Infrastructure.Services
         {
             var created = await _database.StringSetAsync(cart.Id, JsonSerializer.Serialize(cart), TimeSpan.FromDays(30));
 
-            Console.WriteLine(created);
-
             if (!created) return null;
 
             return await GetCartAsync(cart.Id);
